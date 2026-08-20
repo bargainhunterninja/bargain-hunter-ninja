@@ -12,7 +12,7 @@ export default function OfferForm() {
     const form = event.currentTarget;
     setStatus("submitting");
     try {
-      const response = await fetch("/", { method: "POST", body: new FormData(form) });
+      const response = await fetch("/__forms.html", { method: "POST", body: new FormData(form) });
       if (!response.ok) throw new Error("Submission failed");
       form.reset();
       setStatus("success");
