@@ -23,10 +23,14 @@ function ContactButtons({ compact = false }: { compact?: boolean }) {
   return <div className="contact-buttons"><a className={className} href={`tel:${PHONE_LINK}`}>Call {PHONE_DISPLAY}</a><a className={`${className} button-outline`} href={`sms:${PHONE_LINK}`}>Text photos</a></div>;
 }
 
+function BrandLogo({ footer = false }: { footer?: boolean }) {
+  return <a className={`brand-logo${footer ? " footer-logo" : ""}`} href="#top" aria-label="Bargain Hunter Ninja home"><img src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja" /></a>;
+}
+
 export default function Home() {
   return <main>
     <header className="site-header">
-      <a className="brand" href="#top" aria-label="Bargain Hunter Ninja home"><span className="brand-mark" aria-hidden="true">忍</span><span><strong>Bargain Hunter</strong><em>Ninja</em></span></a>
+      <BrandLogo />
       <nav aria-label="Main navigation"><a href="#we-buy">What we buy</a><a href="#how-it-works">How it works</a><a href="#about">Why us</a></nav>
       <ContactButtons compact />
     </header>
@@ -39,8 +43,8 @@ export default function Home() {
         <ContactButtons />
         <div className="trust-row" aria-label="Service benefits"><span>✓ Fair cash offers</span><span>✓ By appointment</span><span>✓ Local pickup available</span></div>
       </div>
-      <div className="hero-art" aria-label="A curated collection of items we buy">
-        <div className="sun" /><div className="item-card card-game"><span>🎮</span><b>Games</b></div><div className="item-card card-camera"><span>📷</span><b>Cameras</b></div><div className="item-card card-shirt"><span>👕</span><b>Vintage</b></div><div className="item-card card-toy"><span>🤖</span><b>Toys</b></div><div className="hero-badge"><strong>We buy</strong><span>new • used • vintage</span></div>
+      <div className="hero-art logo-showcase" aria-label="Bargain Hunter Ninja logo">
+        <div className="logo-halo" /><img className="hero-logo" src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja logo with ninja and stacks of cash" /><div className="hero-badge"><strong>We buy</strong><span>new • used • vintage</span></div>
       </div>
     </section>
 
@@ -64,6 +68,6 @@ export default function Home() {
 
     <section className="offer-section" id="contact"><div className="offer-copy"><p className="eyebrow light"><span /> Get an offer</p><h2>Tell us what you want to sell.</h2><p>Call or text us directly, or fill out the form. Include the brand, model, condition and anything else we should know.</p><ContactButtons /><div className="address-card"><b>Warehouse visits by appointment only</b><address>700 NW 57th Ct<br />Fort Lauderdale, FL 33309</address><p>Please call or text before visiting. We are not open for walk-ins.</p></div></div><OfferForm /></section>
 
-    <footer><a className="brand footer-brand" href="#top"><span className="brand-mark">忍</span><span><strong>Bargain Hunter</strong><em>Ninja</em></span></a><p><a href="tel:+19542900490">954-290-0490</a> • <a href="mailto:bargainhunterninja@gmail.com">Email us</a><br />Warehouse visits by appointment only.</p><p>© 2026 Bargain Hunter Ninja. All rights reserved.</p></footer>
+    <footer><BrandLogo footer /><p><a href="tel:+19542900490">954-290-0490</a> • <a href="mailto:bargainhunterninja@gmail.com">Email us</a><br />Warehouse visits by appointment only.</p><p>© 2026 Bargain Hunter Ninja. All rights reserved.</p></footer>
   </main>;
 }
