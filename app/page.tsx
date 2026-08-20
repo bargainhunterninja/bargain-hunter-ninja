@@ -1,4 +1,5 @@
 import OfferForm from "./offer-form";
+import SiteHeader from "./site-header";
 
 const categories = [
   { image: "/real-products/video-games.webp", title: "Video Games", text: "PlayStation, Nintendo, Xbox, games, controllers, handhelds and collections." },
@@ -25,27 +26,40 @@ function ContactButtons({ compact = false }: { compact?: boolean }) {
 }
 
 function BrandLogo({ footer = false }: { footer?: boolean }) {
-  return <a className={`brand-logo${footer ? " footer-logo" : ""}`} href="#top" aria-label="Bargain Hunter Ninja home"><img src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja" /></a>;
+  return <a className={`brand-logo${footer ? " footer-logo" : ""}`} href="#top" aria-label="Bargain Hunter Ninja home"><img src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja" width="640" height="640" /></a>;
 }
 
 export default function Home() {
   return <main>
-    <header className="site-header">
-      <BrandLogo />
-      <nav aria-label="Main navigation"><a href="#we-buy">What we buy</a><a href="#how-it-works">How it works</a><a href="#about">Why us</a></nav>
-      <ContactButtons compact />
-    </header>
+    <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "@id": "https://bargainhunterninja.com/#business",
+      name: "Bargain Hunter Ninja",
+      url: "https://bargainhunterninja.com/",
+      logo: "https://bargainhunterninja.com/bargain-hunter-ninja-logo.jpeg",
+      image: "https://bargainhunterninja.com/og.png",
+      telephone: "+1-954-290-0490",
+      email: "bargainhunterninja@gmail.com",
+      description: "Local South Florida buyer paying cash for video games, cameras, vintage toys, collectibles, clothing, sports equipment and electronics.",
+      priceRange: "$$",
+      address: { "@type": "PostalAddress", streetAddress: "700 NW 57th Ct", addressLocality: "Fort Lauderdale", addressRegion: "FL", postalCode: "33309", addressCountry: "US" },
+      areaServed: ["Fort Lauderdale", "Broward County", "Miami-Dade County", "South Florida"],
+      openingHoursSpecification: { "@type": "OpeningHoursSpecification", description: "By appointment only" },
+      contactPoint: { "@type": "ContactPoint", telephone: "+1-954-290-0490", contactType: "sales", availableLanguage: "English" }
+    }).replace(/</g, "\\u003c") }} />
+    <SiteHeader />
 
     <section className="hero" id="top">
       <div className="hero-copy">
         <p className="eyebrow"><span /> Serving Broward &amp; Miami-Dade</p>
         <h1>Turn your stuff into <em>cash.</em></h1>
-        <p className="hero-lede">We buy video games, vintage toys, cameras, clothing, electronics, sports gear and entire collections. Fast offers. Local service. No online listing hassles.</p>
+        <p className="hero-lede">Sell video games, vintage toys, cameras, clothing, electronics, sports gear and entire collections for cash in Fort Lauderdale. Fast offers, local service and no online listing hassles.</p>
         <ContactButtons />
         <div className="trust-row" aria-label="Service benefits"><span>✓ Fair cash offers</span><span>✓ By appointment</span><span>✓ Local pickup available</span></div>
       </div>
       <div className="hero-art photo-showcase" aria-label="Real examples of items we buy">
-        <div className="hero-photo-grid"><img src="/real-products/video-games.webp" alt="Sony PlayStation console and controller" /><img src="/real-products/cameras.webp" alt="Canon camera" /><img src="/real-products/collectibles.webp" alt="Pokémon card collection" /><img src="/real-products/clothing.webp" alt="Nike shoes" /></div><img className="hero-logo-stamp" src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja" /><div className="hero-badge"><strong>We buy</strong><span>new • used • vintage</span></div>
+        <div className="hero-photo-grid"><img src="/real-products/video-games.webp" alt="Vintage Nintendo, Sega and modern PlayStation video games we buy" width="1254" height="1254" /><img src="/real-products/cameras.webp" alt="Canon, Nikon and Sony cameras we buy" width="1254" height="1254" /><img src="/real-products/collectibles.webp" alt="Sports cards and autographed memorabilia we buy" width="1254" height="1254" /><img src="/real-products/clothing.webp" alt="Vintage branded jackets, hats and clothing we buy" width="1254" height="1254" /></div><img className="hero-logo-stamp" src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja logo" width="640" height="640" /><div className="hero-badge"><strong>We buy</strong><span>new • used • vintage</span></div>
       </div>
     </section>
 
@@ -53,7 +67,7 @@ export default function Home() {
 
     <section className="section" id="we-buy">
       <div className="section-heading"><div><p className="eyebrow"><span /> What we buy</p><h2>Your shelves might be worth more than you think.</h2></div><p>From one great item to a full collection, send us photos and we’ll let you know what we can offer.</p></div>
-      <div className="category-grid">{categories.map((category) => <article className="category-card" key={category.title}><img className="category-photo" src={category.image} alt={`Real ${category.title.toLowerCase()} we buy`} /><div className="category-copy"><h3>{category.title}</h3><p>{category.text}</p></div></article>)}</div>
+      <div className="category-grid">{categories.map((category) => <article className="category-card" key={category.title}><img className="category-photo" src={category.image} alt={`${category.title} we buy for cash in Fort Lauderdale`} width="1254" height="1254" loading="lazy" /><div className="category-copy"><h3>{category.title}</h3><p>{category.text}</p></div></article>)}</div>
       <p className="category-note">Have something else? <a href={`sms:${PHONE_LINK}`}>Send us a photo—we buy all kinds of quality items.</a></p>
     </section>
 
@@ -63,7 +77,7 @@ export default function Home() {
     </section>
 
     <section className="section about" id="about">
-      <div className="about-card"><p className="eyebrow"><span /> The local advantage</p><h2>A real local buyer—not an automated trade-in.</h2><p>Bargain Hunter Ninja is a South Florida resale business with hands-on experience evaluating everything from everyday electronics to hard-to-find vintage collectibles.</p><ul><li>Knowledge across many categories</li><li>Safe Fort Lauderdale-area meeting location</li><li>Appointments that respect your time</li><li>Pickup options for larger collections</li></ul></div>
+      <div className="about-card"><p className="eyebrow"><span /> The local advantage</p><h2>A real Fort Lauderdale buyer—not an automated trade-in.</h2><p>Bargain Hunter Ninja buys new, used and vintage items throughout Broward and Miami-Dade. We have hands-on experience evaluating everything from everyday electronics and cameras to hard-to-find toys, clothing and collectibles.</p><ul><li>Knowledge across many categories</li><li>Safe Fort Lauderdale meeting location</li><li>Appointments that respect your time</li><li>Pickup options for larger collections</li></ul></div>
       <blockquote><span>“</span><p>Our goal is simple: make selling your items easy, comfortable and worthwhile.</p><cite>— Bargain Hunter Ninja</cite></blockquote>
     </section>
 
