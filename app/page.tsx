@@ -1,13 +1,13 @@
 import OfferForm from "./offer-form";
 
 const categories = [
-  { image: "/realistic-games-cameras.png", title: "Video Games", text: "Consoles, games, controllers, handhelds and collections—modern or vintage." },
-  { image: "/realistic-games-cameras.png", title: "Cameras", text: "Point-and-shoot, DSLR and film cameras, lenses and accessories." },
-  { image: "/realistic-collectibles.png", title: "Vintage Toys", text: "Action figures, dolls, playsets, die-cast, sealed toys and collections." },
-  { image: "/realistic-collectibles.png", title: "Collectibles", text: "Trading cards, comics, figures, memorabilia, die-cast and unique collections." },
-  { image: "/realistic-clothing-sports.png", title: "Clothing", text: "Vintage tees, jackets, sportswear, hats, denim and sought-after brands." },
-  { image: "/realistic-clothing-sports.png", title: "Sports Gear", text: "Golf clubs and bags, pool cues, wrestling gear and quality equipment." },
-  { image: "/realistic-electronics.png", title: "Electronics", text: "Audio gear, VCRs, turntables, headphones, home electronics and vintage technology." },
+  { image: "/real-products/video-games.webp", title: "Video Games", text: "PlayStation, Nintendo, Xbox, games, controllers, handhelds and collections." },
+  { image: "/real-products/cameras.webp", title: "Cameras", text: "Canon, Nikon, Sony, point-and-shoot, DSLR and film cameras, lenses and accessories." },
+  { image: "/real-products/vintage-toys.webp", title: "Vintage Toys", text: "Barbie, LEGO, action figures, dolls, playsets, die-cast and sealed toys." },
+  { image: "/real-products/collectibles.webp", title: "Collectibles", text: "Pokémon cards, comics, sports cards, memorabilia, figures and unique collections." },
+  { image: "/real-products/clothing.webp", title: "Clothing", text: "Nike, Levi’s, vintage tees, jackets, sportswear, hats and sought-after brands." },
+  { image: "/real-products/sports-gear.webp", title: "Sports Gear", text: "Callaway and other quality golf clubs, bags, pool cues, wrestling gear and equipment." },
+  { image: "/real-products/electronics.webp", title: "Electronics", text: "Sony, Technics, audio gear, VCRs, turntables, headphones and vintage technology." },
 ];
 
 const steps = [
@@ -45,7 +45,7 @@ export default function Home() {
         <div className="trust-row" aria-label="Service benefits"><span>✓ Fair cash offers</span><span>✓ By appointment</span><span>✓ Local pickup available</span></div>
       </div>
       <div className="hero-art photo-showcase" aria-label="Real examples of items we buy">
-        <img className="hero-photo" src="/realistic-resale-hero.png" alt="Video games, cameras, collectibles, clothing, sports gear and electronics in a South Florida warehouse" /><img className="hero-logo-stamp" src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja" /><div className="hero-badge"><strong>We buy</strong><span>new • used • vintage</span></div>
+        <div className="hero-photo-grid"><img src="/real-products/video-games.webp" alt="Sony PlayStation console and controller" /><img src="/real-products/cameras.webp" alt="Canon camera" /><img src="/real-products/collectibles.webp" alt="Pokémon card collection" /><img src="/real-products/clothing.webp" alt="Nike shoes" /></div><img className="hero-logo-stamp" src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja" /><div className="hero-badge"><strong>We buy</strong><span>new • used • vintage</span></div>
       </div>
     </section>
 
@@ -53,7 +53,7 @@ export default function Home() {
 
     <section className="section" id="we-buy">
       <div className="section-heading"><div><p className="eyebrow"><span /> What we buy</p><h2>Your shelves might be worth more than you think.</h2></div><p>From one great item to a full collection, send us photos and we’ll let you know what we can offer.</p></div>
-      <div className="category-grid">{categories.map((category) => <article className="category-card" key={category.title}><img className="category-photo" src={category.image} alt={`Realistic examples of ${category.title.toLowerCase()} we buy`} /><div className="category-copy"><h3>{category.title}</h3><p>{category.text}</p></div></article>)}</div>
+      <div className="category-grid">{categories.map((category) => <article className="category-card" key={category.title}><img className="category-photo" src={category.image} alt={`Real ${category.title.toLowerCase()} we buy`} /><div className="category-copy"><h3>{category.title}</h3><p>{category.text}</p></div></article>)}</div>
       <p className="category-note">Have something else? <a href={`sms:${PHONE_LINK}`}>Send us a photo—we buy all kinds of quality items.</a></p>
     </section>
 
@@ -69,6 +69,6 @@ export default function Home() {
 
     <section className="offer-section" id="contact"><div className="offer-copy"><p className="eyebrow light"><span /> Get an offer</p><h2>Tell us what you want to sell.</h2><p>Call or text us directly, or fill out the form. Include the brand, model, condition and anything else we should know.</p><ContactButtons /><div className="address-card"><b>Warehouse visits by appointment only</b><address>700 NW 57th Ct<br />Fort Lauderdale, FL 33309</address><p>Please call or text before visiting. We are not open for walk-ins.</p></div></div><OfferForm /></section>
 
-    <footer><BrandLogo footer /><p><a href="tel:+19542900490">954-290-0490</a> • <a href="mailto:bargainhunterninja@gmail.com">Email us</a><br />Warehouse visits by appointment only.</p><p>© 2026 Bargain Hunter Ninja. All rights reserved.</p></footer>
+    <footer><BrandLogo footer /><p><a href="tel:+19542900490">954-290-0490</a> • <a href="mailto:bargainhunterninja@gmail.com">Email us</a><br />Warehouse visits by appointment only.</p><div className="footer-legal"><p>© 2026 Bargain Hunter Ninja. All rights reserved.</p><details><summary>Photo credits</summary><p>Product photos sourced from Wikimedia Commons. Credits: Evan-Amos (PlayStation, public domain); Unsplash contributors (Canon and Nike, CC0); Los Angeles Times/UCLA (Barbie, CC BY 4.0); Jarek Tuszyński (Pokémon, CC BY-SA 4.0); Lee &amp; Chantelle McArthur (Callaway, CC BY 2.0); BMRR (Technics, CC BY-SA 4.0). Images cropped for display.</p></details></div></footer>
   </main>;
 }
