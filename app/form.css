@@ -1,0 +1,18 @@
+.form-honeypot{position:absolute!important;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.offer-form label span,.photo-fields legend span{font-weight:500;text-transform:none;letter-spacing:0;color:var(--muted)}
+.photo-fields{margin:0;padding:18px;border:2px solid #ccd0c8;border-radius:8px}
+.photo-fields legend{padding:0 6px;font-size:12px;font-weight:900;text-transform:uppercase;letter-spacing:.08em}
+.photo-fields>p{margin:0 0 14px;color:var(--muted);font-size:13px;line-height:1.5}
+.photo-inputs{display:grid!important;grid-template-columns:repeat(3,1fr);gap:12px!important}
+.photo-inputs label{gap:6px;display:flex;flex-direction:column}
+.photo-inputs input{padding:8px;font-size:12px}
+.offer-form button:disabled{opacity:.7;cursor:wait}
+.form-status{margin:0;text-align:center;color:var(--muted);font-size:12px;line-height:1.5}
+.form-status a{font-weight:900;color:var(--green)}
+.form-error{padding:12px;color:#8b1e1e;background:#ffe8e5;border-radius:7px}
+.form-confirmation{display:flex;min-height:440px;flex-direction:column;justify-content:center;align-items:center;text-align:center}
+.form-confirmation .confirmation-check{width:70px;height:70px;display:grid;place-items:center;border-radius:50%;color:var(--ink);background:var(--lime);border:3px solid var(--ink);font-size:36px;font-weight:900}
+.form-confirmation h3{margin:20px 0 0;font-size:30px;text-transform:uppercase}
+.form-confirmation p{max-width:470px;color:var(--muted);line-height:1.7}
+.form-confirmation .button{margin-top:10px}
+@media(max-width:620px){.photo-inputs{grid-template-columns:1fr}.form-confirmation{min-height:380px}}

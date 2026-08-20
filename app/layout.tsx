@@ -1,5 +1,6 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
+import "./form.css";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bargainhunterninja.com"),
