@@ -4,7 +4,7 @@ import { FormEvent, useState } from "react";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
-export default function OfferForm() {
+export default function OfferForm({ initialItem = "" }: { initialItem?: string }) {
   const [status, setStatus] = useState<Status>("idle");
 
   async function submitOffer(event: FormEvent<HTMLFormElement>) {
@@ -31,7 +31,7 @@ export default function OfferForm() {
     <div><label htmlFor="name">Your name</label><input id="name" name="name" autoComplete="name" required /></div>
     <div><label htmlFor="phone">Phone number</label><input id="phone" name="phone" type="tel" inputMode="tel" autoComplete="tel" required /></div>
     <div className="full"><label htmlFor="email">Email address <span>(optional)</span></label><input id="email" name="email" type="email" inputMode="email" autoComplete="email" /></div>
-    <div className="full"><label htmlFor="item">What are you selling?</label><input id="item" name="item" placeholder="Example: Nintendo games, vintage shirts, camera collection" required /></div>
+    <div className="full"><label htmlFor="item">What are you selling?</label><input id="item" name="item" defaultValue={initialItem} placeholder="Example: Nintendo games, vintage shirts, camera collection" required /></div>
     <div className="full"><label htmlFor="asking-price">How much are you hoping to receive?</label><input id="asking-price" name="asking-price" inputMode="decimal" placeholder="Enter an amount or price range" required /></div>
     <div className="full"><label htmlFor="sale-size">Are you selling one item or a collection?</label><select id="sale-size" name="sale-size" defaultValue="" required><option value="" disabled>Select one</option><option value="One item">One item</option><option value="A few items">A few items</option><option value="Whole collection or bulk lot">Whole collection or bulk lot</option></select></div>
     <div className="full"><label htmlFor="details">Condition and details</label><textarea id="details" name="details" rows={5} placeholder="Brands, model numbers, quantity, condition and anything else we should know" required /></div>

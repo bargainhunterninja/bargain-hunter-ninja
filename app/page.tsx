@@ -1,15 +1,7 @@
 import OfferForm from "./offer-form";
 import SiteHeader from "./site-header";
-
-const categories = [
-  { image: "/real-products/video-games.webp", title: "Video Games", text: "PlayStation, Nintendo, Xbox, games, controllers, handhelds and collections." },
-  { image: "/real-products/cameras.webp", title: "Cameras", text: "Canon, Nikon, Sony, point-and-shoot, DSLR and film cameras, lenses and accessories." },
-  { image: "/real-products/vintage-toys.webp", title: "Vintage Toys", text: "Barbie, LEGO, action figures, dolls, playsets, die-cast and sealed toys." },
-  { image: "/real-products/collectibles.webp", title: "Collectibles", text: "Pokémon cards, comics, sports cards, memorabilia, figures and unique collections." },
-  { image: "/real-products/clothing.webp", title: "Clothing", text: "Nike, Levi’s, vintage tees, jackets, sportswear, hats and sought-after brands." },
-  { image: "/real-products/sports-gear.webp", title: "Sports Gear", text: "Callaway and other quality golf clubs, bags, pool cues, wrestling gear and equipment." },
-  { image: "/real-products/electronics.webp", title: "Electronics", text: "Sony, Technics, audio gear, VCRs, turntables, headphones and vintage technology." },
-];
+import { buyingCategories } from "./category-data";
+import Link from "next/link";
 
 const steps = [
   ["01", "Tell us what you have", "Call or text with a few photos and a quick description."],
@@ -26,7 +18,7 @@ function ContactButtons({ compact = false }: { compact?: boolean }) {
 }
 
 function BrandLogo({ footer = false }: { footer?: boolean }) {
-  return <a className={`brand-logo${footer ? " footer-logo" : ""}`} href="#top" aria-label="Bargain Hunter Ninja home"><img src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja" width="640" height="640" /></a>;
+  return <Link className={`brand-logo${footer ? " footer-logo" : ""}`} href="/" aria-label="Bargain Hunter Ninja home"><img src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja" width="640" height="640" /></Link>;
 }
 
 export default function Home() {
@@ -67,7 +59,7 @@ export default function Home() {
 
     <section className="section" id="we-buy">
       <div className="section-heading"><div><p className="eyebrow"><span /> What we buy</p><h2>Your shelves might be worth more than you think.</h2></div><p>From one great item to a full collection, send us photos and we’ll let you know what we can offer.</p></div>
-      <div className="category-grid">{categories.map((category) => <article className="category-card" key={category.title}><img className="category-photo" src={category.image} alt={`${category.title} we buy for cash in Fort Lauderdale`} width="1254" height="1254" loading="lazy" /><div className="category-copy"><h3>{category.title}</h3><p>{category.text}</p></div></article>)}</div>
+      <div className="category-grid">{buyingCategories.map((category) => <Link className="category-card" href={`/${category.slug}`} key={category.slug}><img className="category-photo" src={category.image} alt={`${category.shortTitle} we buy for cash in Fort Lauderdale`} width="1254" height="1254" loading="lazy" /><div className="category-copy"><h3>{category.shortTitle}</h3><p>{category.cardText}</p><b className="category-link">See everything we buy <span>→</span></b></div></Link>)}</div>
       <p className="category-note">Have something else? <a href={`sms:${PHONE_LINK}`}>Send us a photo—we buy all kinds of quality items.</a></p>
     </section>
 

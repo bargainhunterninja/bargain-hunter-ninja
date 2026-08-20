@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
 
 const PHONE_DISPLAY = "954-290-0490";
 const PHONE_LINK = "+19542900490";
@@ -17,16 +18,16 @@ export default function SiteHeader() {
   const closeMenu = () => setOpen(false);
 
   return <header className="site-header">
-    <a className="brand-logo" href="#top" aria-label="Bargain Hunter Ninja home" onClick={closeMenu}>
+    <Link className="brand-logo" href="/" aria-label="Bargain Hunter Ninja home" onClick={closeMenu}>
       <img src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja" width="640" height="640" />
-    </a>
+    </Link>
     <button className="menu-toggle" type="button" aria-label={open ? "Close navigation menu" : "Open navigation menu"} aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(!open)}>
       <span /><span /><span />
     </button>
     <nav id="main-navigation" className={open ? "nav-open" : ""} aria-label="Main navigation">
-      <a href="#we-buy" onClick={closeMenu}>What we buy</a>
-      <a href="#how-it-works" onClick={closeMenu}>How it works</a>
-      <a href="#about" onClick={closeMenu}>Why us</a>
+      <Link href="/#we-buy" onClick={closeMenu}>What we buy</Link>
+      <Link href="/#how-it-works" onClick={closeMenu}>How it works</Link>
+      <Link href="/#about" onClick={closeMenu}>Why us</Link>
       <a href="#contact" onClick={closeMenu}>Get an offer</a>
       <div className="mobile-nav-actions"><a className="button" href={`tel:${PHONE_LINK}`}>Call {PHONE_DISPLAY}</a><a className="button button-outline" href={`sms:${PHONE_LINK}`}>Text photos</a></div>
     </nav>

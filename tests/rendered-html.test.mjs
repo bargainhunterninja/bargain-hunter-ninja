@@ -36,3 +36,28 @@ test("renders mobile navigation and local SEO metadata", async () => {
   assert.match(html, /aria-controls="main-navigation"/i);
   assert.match(html, /href="tel:\+19542900490"/i);
 });
+
+test("renders unique category landing pages and lists them in the sitemap", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `categories-${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
+  const ctx = { waitUntil() {}, passThroughOnException() {} };
+
+  const response = await worker.fetch(new Request("http://localhost/sell-video-games", { headers: { accept: "text/html" } }), env, ctx);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Sell Video Games for Cash in Fort Lauderdale \| Bargain Hunter Ninja<\/title>/i);
+  assert.match(html, /<link rel="canonical" href="https:\/\/bargainhunterninja\.com\/sell-video-games"\/>/i);
+  assert.match(html, /Nintendo/i);
+  assert.match(html, /PlayStation/i);
+  assert.match(html, /value="Video Games"/i);
+  assert.match(html, /"@type":"Service"/i);
+
+  const sitemap = await worker.fetch(new Request("http://localhost/sitemap.xml"), env, ctx);
+  assert.equal(sitemap.status, 200);
+  const xml = await sitemap.text();
+  for (const slug of ["sell-video-games", "sell-cameras", "sell-vintage-toys", "sell-collectibles", "sell-vintage-clothing", "sell-sports-equipment", "sell-electronics"]) {
+    assert.match(xml, new RegExp(`https://bargainhunterninja\\.com/${slug}`));
+  }
+});
