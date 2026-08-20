@@ -1,6 +1,7 @@
 "use client";
 
 import { FormEvent, useState } from "react";
+import { trackAnalyticsEvent } from "./google-analytics";
 
 type Status = "idle" | "submitting" | "success" | "error";
 
@@ -14,6 +15,10 @@ export default function OfferForm({ initialItem = "" }: { initialItem?: string }
     try {
       const response = await fetch("/__forms.html", { method: "POST", body: new FormData(form) });
       if (!response.ok) throw new Error("Submission failed");
+      trackAnalyticsEvent("generate_lead", {
+        lead_method: "offer_form",
+        item_category: initialItem || "general",
+      });
       form.reset();
       setStatus("success");
     } catch {

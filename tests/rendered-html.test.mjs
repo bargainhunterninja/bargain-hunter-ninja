@@ -1,4 +1,5 @@
 import assert from "node:assert/strict";
+import { readdir, readFile } from "node:fs/promises";
 import test from "node:test";
 
 test("renders mobile navigation and local SEO metadata", async () => {
@@ -35,6 +36,11 @@ test("renders mobile navigation and local SEO metadata", async () => {
   assert.match(html, /class="menu-toggle"/i);
   assert.match(html, /aria-controls="main-navigation"/i);
   assert.match(html, /href="tel:\+19542900490"/i);
+  assert.match(html, /google-analytics-[^"']+\.js/i);
+  const assetsUrl = new URL("../dist/client/assets/", import.meta.url);
+  const analyticsAsset = (await readdir(assetsUrl)).find((name) => name.startsWith("google-analytics-") && name.endsWith(".js"));
+  assert.ok(analyticsAsset, "Google Analytics client bundle is present");
+  assert.match(await readFile(new URL(analyticsAsset, assetsUrl), "utf8"), /G-SLCLPZEFBR/i);
 });
 
 test("renders unique category landing pages and lists them in the sitemap", async () => {
