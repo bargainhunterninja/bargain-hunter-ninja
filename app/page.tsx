@@ -69,6 +69,6 @@ export default function Home() {
 
     <section className="offer-section" id="contact"><div className="offer-copy"><p className="eyebrow light"><span /> Get an offer</p><h2>Tell us what you want to sell.</h2><p>Call or text us directly, or fill out the form. Include the brand, model, condition and anything else we should know.</p><ContactButtons /><div className="address-card"><b>Warehouse visits by appointment only</b><address>700 NW 57th Ct<br />Fort Lauderdale, FL 33309</address><p>Please call or text before visiting. We are not open for walk-ins.</p></div></div><OfferForm /></section>
 
-    <footer><BrandLogo footer /><p><a href="tel:+19542900490">954-290-0490</a> • <a href="mailto:bargainhunterninja@gmail.com">Email us</a><br />Warehouse visits by appointment only.</p><div className="footer-legal"><p>© 2026 Bargain Hunter Ninja. All rights reserved.</p><details><summary>Photo credits</summary><p>Selected product photos from Wikimedia Commons: Lee &amp; Chantelle McArthur (Callaway, CC BY 2.0); BMRR (Technics, CC BY-SA 4.0). Images cropped for display.</p></details></div></footer>
+    <footer><BrandLogo footer /><p><a href="tel:+19542900490">954-290-0490</a> • <a href="mailto:bargainhunterninja@gmail.com">Email us</a><br />Warehouse visits by appointment only.</p><div className="footer-legal"><p>© 2026 Bargain Hunter Ninja. All rights reserved.</p><details><summary>Photo credit</summary><p>Technics photo by BMRR via Wikimedia Commons (CC BY-SA 4.0), cropped for display.</p></details></div></footer>
   </main>;
 }
