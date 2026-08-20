@@ -1,6 +1,7 @@
 import type { Metadata, Viewport } from "next";
 import "./globals.css";
 import "./form.css";
+import GoogleAnalytics from "./google-analytics";
 
 export const metadata: Metadata = {
   metadataBase: new URL("https://bargainhunterninja.com"),
@@ -16,4 +17,4 @@ export const metadata: Metadata = {
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#18243a" };
 
-export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="en-US"><body>{children}</body></html>; }
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) { return <html lang="en-US"><body>{children}<GoogleAnalytics /></body></html>; }
