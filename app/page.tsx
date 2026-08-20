@@ -1,12 +1,13 @@
 import OfferForm from "./offer-form";
 
 const categories = [
-  { icon: "🎮", title: "Video Games", text: "Consoles, games, controllers, handhelds and collections—modern or vintage." },
-  { icon: "📷", title: "Cameras", text: "Point-and-shoot, DSLR and film cameras, lenses and accessories." },
-  { icon: "🧸", title: "Vintage Toys", text: "Action figures, dolls, playsets, die-cast, sealed toys and collections." },
-  { icon: "👕", title: "Clothing", text: "Vintage tees, jackets, sportswear, hats, denim and sought-after brands." },
-  { icon: "⛳", title: "Sports Gear", text: "Golf clubs and bags, pool cues, wrestling gear and quality equipment." },
-  { icon: "📻", title: "Electronics", text: "Audio gear, VCRs, home electronics and interesting vintage technology." },
+  { image: "/realistic-games-cameras.png", title: "Video Games", text: "Consoles, games, controllers, handhelds and collections—modern or vintage." },
+  { image: "/realistic-games-cameras.png", title: "Cameras", text: "Point-and-shoot, DSLR and film cameras, lenses and accessories." },
+  { image: "/realistic-collectibles.png", title: "Vintage Toys", text: "Action figures, dolls, playsets, die-cast, sealed toys and collections." },
+  { image: "/realistic-collectibles.png", title: "Collectibles", text: "Trading cards, comics, figures, memorabilia, die-cast and unique collections." },
+  { image: "/realistic-clothing-sports.png", title: "Clothing", text: "Vintage tees, jackets, sportswear, hats, denim and sought-after brands." },
+  { image: "/realistic-clothing-sports.png", title: "Sports Gear", text: "Golf clubs and bags, pool cues, wrestling gear and quality equipment." },
+  { image: "/realistic-electronics.png", title: "Electronics", text: "Audio gear, VCRs, turntables, headphones, home electronics and vintage technology." },
 ];
 
 const steps = [
@@ -43,8 +44,8 @@ export default function Home() {
         <ContactButtons />
         <div className="trust-row" aria-label="Service benefits"><span>✓ Fair cash offers</span><span>✓ By appointment</span><span>✓ Local pickup available</span></div>
       </div>
-      <div className="hero-art logo-showcase" aria-label="Bargain Hunter Ninja logo">
-        <div className="logo-halo" /><img className="hero-logo" src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja logo with ninja and stacks of cash" /><div className="hero-badge"><strong>We buy</strong><span>new • used • vintage</span></div>
+      <div className="hero-art photo-showcase" aria-label="Real examples of items we buy">
+        <img className="hero-photo" src="/realistic-resale-hero.png" alt="Video games, cameras, collectibles, clothing, sports gear and electronics in a South Florida warehouse" /><img className="hero-logo-stamp" src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja" /><div className="hero-badge"><strong>We buy</strong><span>new • used • vintage</span></div>
       </div>
     </section>
 
@@ -52,7 +53,7 @@ export default function Home() {
 
     <section className="section" id="we-buy">
       <div className="section-heading"><div><p className="eyebrow"><span /> What we buy</p><h2>Your shelves might be worth more than you think.</h2></div><p>From one great item to a full collection, send us photos and we’ll let you know what we can offer.</p></div>
-      <div className="category-grid">{categories.map((category) => <article className="category-card" key={category.title}><div className="category-icon" aria-hidden="true">{category.icon}</div><h3>{category.title}</h3><p>{category.text}</p></article>)}</div>
+      <div className="category-grid">{categories.map((category) => <article className="category-card" key={category.title}><img className="category-photo" src={category.image} alt={`Realistic examples of ${category.title.toLowerCase()} we buy`} /><div className="category-copy"><h3>{category.title}</h3><p>{category.text}</p></div></article>)}</div>
       <p className="category-note">Have something else? <a href={`sms:${PHONE_LINK}`}>Send us a photo—we buy all kinds of quality items.</a></p>
     </section>
 
