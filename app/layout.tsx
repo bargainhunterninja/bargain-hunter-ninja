@@ -12,7 +12,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true, googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1, "max-video-preview": -1 } },
   openGraph: { title: "Turn Your Stuff Into Cash | Bargain Hunter Ninja", description: "Fast, fair local offers for quality items and collections in Broward and Miami-Dade.", url: "https://bargainhunterninja.com", siteName: "Bargain Hunter Ninja", type: "website", images: [{ url: "/og.png", width: 1200, height: 630, alt: "Bargain Hunter Ninja — turn your stuff into cash" }] },
   twitter: { card: "summary_large_image", title: "Bargain Hunter Ninja", description: "South Florida's local buyer for quality items and collections.", images: ["/og.png"] },
-  icons: { icon: "/favicon.svg", shortcut: "/favicon.svg" },
+  icons: { icon: "/bargain-ninja-favicon.svg", shortcut: "/bargain-ninja-favicon.svg" },
 };
 
 export const viewport: Viewport = { width: "device-width", initialScale: 1, themeColor: "#18243a" };

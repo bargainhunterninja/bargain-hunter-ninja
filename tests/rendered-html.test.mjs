@@ -36,6 +36,12 @@ test("renders mobile navigation and local SEO metadata", async () => {
   assert.match(html, /class="menu-toggle"/i);
   assert.match(html, /aria-controls="main-navigation"/i);
   assert.match(html, /href="tel:\+19542900490"/i);
+  assert.match(html, /bargain-ninja-favicon\.svg/i);
+  assert.match(html, /A real buyer—not an automated trade-in/i);
+  assert.match(html, /bargain-hunter-ninja-pickup-van\.webp/i);
+  assert.match(html, /instagram\.com\/bargain_hunter_ninja/i);
+  assert.match(html, /facebook\.com\/people\/Bargain-Hunter-Ninja\/61593412928611/i);
+  assert.doesNotMatch(html, /A real Fort Lauderdale buyer/i);
   assert.match(html, /google-analytics-[^"']+\.js/i);
   const assetsUrl = new URL("../dist/client/assets/", import.meta.url);
   const analyticsAsset = (await readdir(assetsUrl)).find((name) => name.startsWith("google-analytics-") && name.endsWith(".js"));
