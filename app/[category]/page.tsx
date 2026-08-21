@@ -3,6 +3,7 @@ import Link from "next/link";
 import { notFound } from "next/navigation";
 import OfferForm from "../offer-form";
 import SiteHeader from "../site-header";
+import SiteFooter from "../site-footer";
 import { buyingCategories, getBuyingCategory } from "../category-data";
 
 const PHONE_DISPLAY = "954-290-0490";
@@ -74,6 +75,6 @@ export default async function CategoryPage({ params }: { params: Promise<{ categ
 
     <section className="related-categories section"><p className="eyebrow"><span /> We also buy</p><h2>Explore other categories</h2><div>{related.map((item) => <Link href={`/${item.slug}`} key={item.slug}>{item.shortTitle}<span>→</span></Link>)}</div></section>
 
-    <footer><Link className="brand-logo footer-logo" href="/" aria-label="Bargain Hunter Ninja home"><img src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja" width="640" height="640" /></Link><p><a href={`tel:${PHONE_LINK}`}>{PHONE_DISPLAY}</a> • <a href="mailto:bargainhunterninja@gmail.com">Email us</a><br />Warehouse visits by appointment only.</p><div className="footer-legal"><p>© 2026 Bargain Hunter Ninja. All rights reserved.</p></div></footer>
+    <SiteFooter />
   </main>;
 }

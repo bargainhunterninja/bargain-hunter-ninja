@@ -2,6 +2,7 @@ import OfferForm from "./offer-form";
 import SiteHeader from "./site-header";
 import { buyingCategories } from "./category-data";
 import Link from "next/link";
+import SiteFooter from "./site-footer";
 
 const steps = [
   ["01", "Tell us what you have", "Call or text with a few photos and a quick description."],
@@ -15,10 +16,6 @@ const PHONE_LINK = "+19542900490";
 function ContactButtons({ compact = false }: { compact?: boolean }) {
   const className = compact ? "button button-small" : "button";
   return <div className="contact-buttons"><a className={className} href={`tel:${PHONE_LINK}`}>Call {PHONE_DISPLAY}</a><a className={`${className} button-outline`} href={`sms:${PHONE_LINK}`}>Text photos</a></div>;
-}
-
-function BrandLogo({ footer = false }: { footer?: boolean }) {
-  return <Link className={`brand-logo${footer ? " footer-logo" : ""}`} href="/" aria-label="Bargain Hunter Ninja home"><img src="/bargain-hunter-ninja-logo.jpeg" alt="Bargain Hunter Ninja" width="640" height="640" /></Link>;
 }
 
 export default function Home() {
@@ -37,6 +34,7 @@ export default function Home() {
       priceRange: "$$",
       address: { "@type": "PostalAddress", streetAddress: "700 NW 57th Ct", addressLocality: "Fort Lauderdale", addressRegion: "FL", postalCode: "33309", addressCountry: "US" },
       areaServed: ["Fort Lauderdale", "Broward County", "Miami-Dade County", "South Florida"],
+      sameAs: ["https://www.instagram.com/bargain_hunter_ninja/", "https://www.facebook.com/people/Bargain-Hunter-Ninja/61593412928611/"],
       openingHoursSpecification: { "@type": "OpeningHoursSpecification", description: "By appointment only" },
       contactPoint: { "@type": "ContactPoint", telephone: "+1-954-290-0490", contactType: "sales", availableLanguage: "English" }
     }).replace(/</g, "\\u003c") }} />
@@ -69,12 +67,17 @@ export default function Home() {
     </section>
 
     <section className="section about" id="about">
-      <div className="about-card"><p className="eyebrow"><span /> The local advantage</p><h2>A real Fort Lauderdale buyer—not an automated trade-in.</h2><p>Bargain Hunter Ninja buys new, used and vintage items throughout Broward and Miami-Dade. We have hands-on experience evaluating everything from everyday electronics and cameras to hard-to-find toys, clothing and collectibles.</p><ul><li>Knowledge across many categories</li><li>Safe Fort Lauderdale meeting location</li><li>Appointments that respect your time</li><li>Pickup options for larger collections</li></ul></div>
+      <div className="about-card"><p className="eyebrow"><span /> The local advantage</p><h2>A real buyer—not an automated trade-in.</h2><p>Bargain Hunter Ninja buys new, used and vintage items throughout Broward and Miami-Dade. We have hands-on experience evaluating everything from everyday electronics and cameras to hard-to-find toys, clothing and collectibles.</p><ul><li>Knowledge across many categories</li><li>Safe Fort Lauderdale meeting location</li><li>Appointments that respect your time</li><li>Pickup options for larger collections</li></ul></div>
       <blockquote><span>“</span><p>Our goal is simple: make selling your items easy, comfortable and worthwhile.</p><cite>— Bargain Hunter Ninja</cite></blockquote>
+    </section>
+
+    <section className="pickup-section">
+      <img src="/bargain-hunter-ninja-pickup-van.webp" alt="Bargain Hunter Ninja local pickup van serving Broward and Miami-Dade" width="1536" height="843" loading="lazy" />
+      <div><p className="eyebrow light"><span /> Local pickup available</p><h2>Selling a larger collection? We may come to you.</h2><p>For qualifying collections and bulk lots in Broward or Miami-Dade, ask about convenient local pickup. Send photos, your location and a quick item count so we can determine whether pickup is available.</p><ContactButtons /></div>
     </section>
 
     <section className="offer-section" id="contact"><div className="offer-copy"><p className="eyebrow light"><span /> Get an offer</p><h2>Tell us what you want to sell.</h2><p>Call or text us directly, or fill out the form. Include the brand, model, condition and anything else we should know.</p><ContactButtons /><div className="address-card"><b>Warehouse visits by appointment only</b><address>700 NW 57th Ct<br />Fort Lauderdale, FL 33309</address><p>Please call or text before visiting. We are not open for walk-ins.</p></div></div><OfferForm /></section>
 
-    <footer><BrandLogo footer /><p><a href="tel:+19542900490">954-290-0490</a> • <a href="mailto:bargainhunterninja@gmail.com">Email us</a><br />Warehouse visits by appointment only.</p><div className="footer-legal"><p>© 2026 Bargain Hunter Ninja. All rights reserved.</p></div></footer>
+    <SiteFooter />
   </main>;
 }
