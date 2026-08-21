@@ -41,6 +41,8 @@ test("renders mobile navigation and local SEO metadata", async () => {
   assert.match(html, /bargain-hunter-ninja-pickup-van\.webp/i);
   assert.match(html, /instagram\.com\/bargain_hunter_ninja/i);
   assert.match(html, /facebook\.com\/people\/Bargain-Hunter-Ninja\/61593412928611/i);
+  assert.match(html, /ebay\.io\/m\/G2IDDO/i);
+  assert.match(html, /Established online seller with an active eBay store/i);
   assert.doesNotMatch(html, /A real Fort Lauderdale buyer/i);
   assert.match(html, /google-analytics-[^"']+\.js/i);
   const assetsUrl = new URL("../dist/client/assets/", import.meta.url);
