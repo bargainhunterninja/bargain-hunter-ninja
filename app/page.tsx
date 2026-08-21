@@ -67,7 +67,7 @@ export default function Home() {
     </section>
 
     <section className="section about" id="about">
-      <div className="about-card"><p className="eyebrow"><span /> The local advantage</p><h2>A real buyer—not an automated trade-in.</h2><p>Bargain Hunter Ninja buys new, used and vintage items throughout Broward and Miami-Dade. We have hands-on experience evaluating everything from everyday electronics and cameras to hard-to-find toys, clothing and collectibles.</p><ul><li>Knowledge across many categories</li><li>Safe Fort Lauderdale meeting location</li><li>Appointments that respect your time</li><li>Pickup options for larger collections</li></ul></div>
+      <div className="about-card"><p className="eyebrow"><span /> The local advantage</p><h2>A real buyer—not an automated trade-in.</h2><p>Bargain Hunter Ninja buys new, used and vintage items throughout Broward and Miami-Dade. We have hands-on experience evaluating everything from everyday electronics and cameras to hard-to-find toys, clothing and collectibles.</p><ul><li>Established online seller with an active eBay store</li><li>Knowledge across many categories</li><li>Safe Fort Lauderdale meeting location</li><li>Appointments that respect your time</li><li>Pickup options for larger collections</li></ul></div>
       <blockquote><span>“</span><p>Our goal is simple: make selling your items easy, comfortable and worthwhile.</p><cite>— Bargain Hunter Ninja</cite></blockquote>
     </section>
 
