@@ -28,6 +28,7 @@ export default function SiteHeader() {
       <Link href="/#we-buy" onClick={closeMenu}>What we buy</Link>
       <Link href="/#how-it-works" onClick={closeMenu}>How it works</Link>
       <Link href="/#about" onClick={closeMenu}>Why us</Link>
+      <Link href="/moving" onClick={closeMenu}>Moving?</Link>
       <a href="#contact" onClick={closeMenu}>Get an offer</a>
       <div className="mobile-nav-actions"><a className="button" href={`tel:${PHONE_LINK}`}>Call {PHONE_DISPLAY}</a><a className="button button-outline" href={`sms:${PHONE_LINK}`}>Text photos</a></div>
     </nav>

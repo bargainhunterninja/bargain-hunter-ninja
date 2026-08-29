@@ -75,3 +75,25 @@ test("renders unique category landing pages and lists them in the sitemap", asyn
     assert.match(xml, new RegExp(`https://bargainhunterninja\\.com/${slug}`));
   }
 });
+
+test("renders the moving and downsizing landing page and lists it in the sitemap", async () => {
+  const workerUrl = new URL("../dist/server/index.js", import.meta.url);
+  workerUrl.searchParams.set("test", `moving-${process.pid}-${Date.now()}`);
+  const { default: worker } = await import(workerUrl.href);
+  const env = { ASSETS: { fetch: async () => new Response("Not found", { status: 404 }) } };
+  const ctx = { waitUntil() {}, passThroughOnException() {} };
+
+  const response = await worker.fetch(new Request("http://localhost/moving", { headers: { accept: "text/html" } }), env, ctx);
+  assert.equal(response.status, 200);
+  const html = await response.text();
+  assert.match(html, /<title>Sell Belongings Before Moving in Fort Lauderdale \| Bargain Hunter Ninja<\/title>/i);
+  assert.match(html, /<link rel="canonical" href="https:\/\/bargainhunterninja\.com\/moving"\/>/i);
+  assert.match(html, /Don(?:’|&#x27;)t move it/i);
+  assert.match(html, /Moving or downsizing belongings/i);
+  assert.match(html, /"@type":"FAQPage"/i);
+  assert.match(html, /bargain-hunter-ninja-pickup-van\.webp/i);
+
+  const sitemap = await worker.fetch(new Request("http://localhost/sitemap.xml"), env, ctx);
+  assert.equal(sitemap.status, 200);
+  assert.match(await sitemap.text(), /https:\/\/bargainhunterninja\.com\/moving/i);
+});
