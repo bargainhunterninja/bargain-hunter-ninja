@@ -55,6 +55,8 @@ export default function Home() {
 
     <section className="proof-strip"><p>Skip the marketplace headaches</p><strong>No fees</strong><i>•</i><strong>No shipping</strong><i>•</i><strong>No waiting</strong><i>•</i><strong>No strangers at your home</strong></section>
 
+    <section className="moving-home-cta"><div><p className="eyebrow light"><span /> Moving or downsizing?</p><h2>Don’t move it. Sell it!</h2><p>Turn selected belongings and collections into cash before moving day.</p></div><Link className="button" href="/moving">See how it works</Link></section>
+
     <section className="section" id="we-buy">
       <div className="section-heading"><div><p className="eyebrow"><span /> What we buy</p><h2>Your shelves might be worth more than you think.</h2></div><p>From one great item to a full collection, send us photos and we’ll let you know what we can offer.</p></div>
       <div className="category-grid">{buyingCategories.map((category) => <Link className="category-card" href={`/${category.slug}`} key={category.slug}><img className="category-photo" src={category.image} alt={`${category.shortTitle} we buy for cash in Fort Lauderdale`} width="1254" height="1254" loading="lazy" /><div className="category-copy"><h3>{category.shortTitle}</h3><p>{category.cardText}</p><b className="category-link">See everything we buy <span>→</span></b></div></Link>)}</div>
